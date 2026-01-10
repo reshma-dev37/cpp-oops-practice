@@ -1,6 +1,7 @@
 /* Future - represents a value that will be available in the future.
 can wait for  a value.
 can retrive a result once .
+async - way to start a start and get a future.
 */
 
 #include<iostream>
