@@ -112,4 +112,36 @@ for(int x:vect)
 {
     cout<<x<<" ";
 }
+    cout<<endl;
+    
+// Thread + Lambda + Variable Capture
+int Sum = 0;
+thread t([&Sum]()
+{
+    for(int i=0;i<5;i++)
+    {
+        Sum+=i;
+    }
+});
+t.join();
+cout<<"After addition :"<<Sum<<endl;
+
+//Thread-Safe using mutex
+thread t1([]()
+{
+    lock_guard<mutex> lock(m);
+    Counter++;
+});
+
+thread t2([]()
+{
+    lock_guard<mutex> lock(m);
+    Counter++;
+});
+t1.join();
+t2.join();
+cout<<"After incrementing counter value is :"<<Counter<<endl;
+
+cout<<"Main thread is executed!!"<<endl;
+
 }
