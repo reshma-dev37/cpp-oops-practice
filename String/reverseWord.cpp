@@ -26,7 +26,7 @@ void reverseWords(string &str)
     {
         if(end == n || str[end] == ' ')
         {
-            swapWords(str,start,end);
+            swapWords(str,start,end-1);
             start = end+1;
         }
     }
